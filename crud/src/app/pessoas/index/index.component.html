@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Crud Angular</h1>
+
+    <a href="#" routerLink="/pessoas/create/" class="btn btn-success">Cadastrar Pessoa</a>
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome Completo</th>
+                <th>Email</th>
+                <th width="250px">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pessoa of pessoas">
+                <td>{{ pessoa.id }}</td>
+                <td>{{ pessoa.name }}</td>
+                <td>{{ pessoa.email }}</td>
+                <td>
+                    <a href="#" [routerLink]="['/pessoas/', pessoa.id, 'view']" class="btn btn-info">Ver</a>
+                    <a href="#" [routerLink]="['/pessoas/', pessoa.id, 'edit']" class="btn btn-primary">Editar</a>
+                    <button type="button" (click)="deletePessoa(pessoa.id)" class="btn btn-danger">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
